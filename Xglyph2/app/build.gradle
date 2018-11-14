@@ -1,29 +1,30 @@
 apply plugin: 'com.android.application'
 
 android {
-	compileSdkVersion 27
-	buildToolsVersion "27.0.2"
-
-	defaultConfig {
-		applicationId "com.cypher.xglyph2"
-		minSdkVersion 14
-		targetSdkVersion 27
-		versionCode 13
-		versionName "1.7"
-
-		buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
-	}
-
-	buildTypes {
-		release {
-			minifyEnabled false
-		}
-	}
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.cypher.xglyph2"
+        minSdkVersion 14
+        targetSdkVersion 27
+        versionCode 13
+        versionName "1.8"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
-	compile 'com.android.support:appcompat-v7:27.+'
-	compile 'com.github.amlcurran.showcaseview:library:5.4.3'
-	compile 'org.florescu.android.rangeseekbar:rangeseekbar-library:0.3.0'
-	provided 'de.robv.android.xposed:api:82'
+
+    implementation 'com.android.support:appcompat-v7:27.+'
+    implementation 'com.android.support:support-v4:27.+'
+    implementation 'com.github.amlcurran.showcaseview:library:5.4.3'
+    implementation 'org.florescu.android.rangeseekbar:rangeseekbar-library:0.3.0'
+    compileOnly 'de.robv.android.xposed:api:82'
+
 }
